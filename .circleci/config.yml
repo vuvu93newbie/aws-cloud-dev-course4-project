@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  build:
+  build_and_push_images:
     working_directory: ~/app
     docker:
       - image: cimg/base:2024.12
@@ -14,35 +14,22 @@ jobs:
           docker_layer_caching: true
 
       - run:
-          name: build feed
-          command: |
-            TAG=0.1.$CIRCLE_BUILD_NUM
-            docker build -t udagram-api-feed $DOCKERHUB_USERNAME/udagram-api-feed:$TAG
+          name: Build Docker Images
+          command: docker-compose -f docker-compose-build.yaml build --parallel
 
       - run:
-          name: build user
+          name: Tag Docker Images
           command: |
-            TAG=0.1.$CIRCLE_BUILD_NUM
-            docker build -t udagram-api-user $DOCKERHUB_USERNAME/udagram-api-user:$TAG
+            docker tag reverseproxy:latest $DOCKERHUB_USERNAME/udagram-reverseproxy:${CIRCLE_BUILD_NUM} 
+            docker tag udagram-api-user:latest $DOCKERHUB_USERNAME/udagram-api-user:${CIRCLE_BUILD_NUM}
+            docker tag udagram-api-feed:latest $DOCKERHUB_USERNAME/udagram-api-feed:${CIRCLE_BUILD_NUM}
+            docker tag udagram-frontend:local $DOCKERHUB_USERNAME/udagram-frontend:${CIRCLE_BUILD_NUM}
 
       - run:
-          name: build reverseproxy
+          name: Push Docker Images
           command: |
-            TAG=0.1.$CIRCLE_BUILD_NUM
-            docker build -t udagram-reverseproxy $DOCKERHUB_USERNAME/udagram-reverseproxy:$TAG
-
-      - run:
-          name: build frontend
-          command: |
-            TAG=0.1.$CIRCLE_BUILD_NUM
-            docker build -t udagram-frontend $DOCKERHUB_USERNAME/udagram-frontend:$TAG    
-
-      - run:
-          name: push docker image
-          command: |
-            TAG=0.1.$CIRCLE_BUILD_NUM
             echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
-            docker push $DOCKERHUB_USERNAME/udagram-api-feed:$TAG
-            docker push $DOCKERHUB_USERNAME/udagram-api-user:$TAG
-            docker push $DOCKERHUB_USERNAME/udagram-reverseproxy:$TAG
-            docker push $DOCKERHUB_USERNAME/udagram-frontend:$TAG
+            docker push $DOCKERHUB_USERNAME/udagram-api-feed:${CIRCLE_BUILD_NUM} 
+            docker push $DOCKERHUB_USERNAME/udagram-api-user:${CIRCLE_BUILD_NUM} 
+            docker push $DOCKERHUB_USERNAME/udagram-reverseproxy:${CIRCLE_BUILD_NUM} 
+            docker push $DOCKERHUB_USERNAME/udagram-frontend:${CIRCLE_BUILD_NUM} 
