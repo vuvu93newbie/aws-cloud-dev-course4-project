@@ -32,4 +32,10 @@ jobs:
             docker push $DOCKERHUB_USERNAME/udagram-api-feed:${CIRCLE_BUILD_NUM} 
             docker push $DOCKERHUB_USERNAME/udagram-api-user:${CIRCLE_BUILD_NUM} 
             docker push $DOCKERHUB_USERNAME/udagram-reverseproxy:${CIRCLE_BUILD_NUM} 
-            docker push $DOCKERHUB_USERNAME/udagram-frontend:${CIRCLE_BUILD_NUM} 
+            docker push $DOCKERHUB_USERNAME/udagram-frontend:${CIRCLE_BUILD_NUM}
+
+workflows: 
+  version: 2 
+  build_and_deploy: 
+    jobs: 
+      - build_and_push_images
