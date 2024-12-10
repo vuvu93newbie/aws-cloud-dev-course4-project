@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: user-283283292176
+  name: udagram-api-user
   labels:
     app: udagram-api-user
 spec:
