@@ -64,11 +64,11 @@ spec:
         - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: env-secret
+              name: env-secret-283283292176
               key: POSTGRES_PASSWORD
         - name: POSTGRES_USERNAME
           valueFrom:
             secretKeyRef:
-              name: env-secret
+              name: env-secret-283283292176
               key: POSTGRES_USERNAME
       restartPolicy: Always
