@@ -4,11 +4,11 @@ metadata:
   name: env-config
 data:
   AWS_REGION: "us-east-1"
-  AWS_BUCKET: "arn:aws:s3:::project4-038617275137"
-  AWS_PROFILE: "user-admin-038617275137"
+  AWS_BUCKET: "project4-038617275137"
+  AWS_PROFILE: "default"
   POSTGRES_HOST: "mydatabase.cvnconvvv5xs.us-east-1.rds.amazonaws.com"
   POSTGRES_DB: "postgres"
-  URL: "http://localhost:8100"
+  URL: "a284b1d2d416646f9918e5983ea39250-1791478666.us-east-1.elb.amazonaws.com"
   JWT_SECRET: testing
 
   
