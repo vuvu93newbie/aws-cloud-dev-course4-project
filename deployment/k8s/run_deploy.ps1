@@ -58,3 +58,11 @@ printenv | grep POST
 # If your frontend is loading properly, and showing Error: Uncaught (in promise): HttpErrorResponse: {"headers":{"normalizedNames":{},"lazyUpdate":null,"headers":{}},"status":0,"statusText":"Unknown Error"...., it is possibly because the udagram-frontend/src/environments/environment.ts file has incorrectly defined the ‘apiHost’ to whom forward the requests.
 # If your frontend is not not loading, and showing Error: Uncaught (in promise): HttpErrorResponse: {"headers":{"normalizedNames":{},"lazyUpdate":null,"headers":{}},"status":0,"statusText":"Unknown Error", .... , it is possibly because URL variable is not set correctly.
 # In the case of Failed to load resource: net::ERR_CONNECTION_REFUSED error as well, it is possibly because the URL variable is not set correctly.
+
+## Run these commands from the /udagram-deployment directory
+## Rolling update the containers of "frontend" deployment
+kubectl set image deployment frontend frontend=[Dockerhub-username]/udagram-frontend:v6
+
+# force update image
+kubectl set image deployment/udagram-frontend udagram-frontend=vuvunewbie/udagram-frontend:latest --record
+
