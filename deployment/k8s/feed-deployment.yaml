@@ -29,46 +29,46 @@ spec:
         - name: URL
           valueFrom:
             configMapKeyRef:
-              name: config-283283292176
+              name: config-038617275137
               key: URL
         - name: AWS_BUCKET
           valueFrom:
             configMapKeyRef:
-              name: config-283283292176
+              name: config-038617275137
               key: AWS_BUCKET
         - name: AWS_PROFILE
           valueFrom:
             configMapKeyRef:
-              name: config-283283292176
+              name: config-038617275137
               key: AWS_PROFILE
         - name: AWS_REGION
           valueFrom:
             configMapKeyRef:
-              name: config-283283292176
+              name: config-038617275137
               key: AWS_REGION
         - name: JWT_SECRET
           valueFrom:
             configMapKeyRef:
-              name: config-283283292176
+              name: config-038617275137
               key: JWT_SECRET
         - name: POSTGRES_DB
           valueFrom:
             configMapKeyRef:
-              name: config-283283292176
+              name: config-038617275137
               key: POSTGRES_DB
         - name: POSTGRES_HOST
           valueFrom:
             configMapKeyRef:
-              name: config-283283292176
+              name: config-038617275137
               key: POSTGRES_HOST
         - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: env-secret-283283292176
+              name: env-secret-038617275137
               key: POSTGRES_PASSWORD
         - name: POSTGRES_USERNAME
           valueFrom:
             secretKeyRef:
-              name: env-secret-283283292176
+              name: env-secret-038617275137
               key: POSTGRES_USERNAME
       restartPolicy: Always

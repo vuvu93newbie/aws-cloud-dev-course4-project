@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: config-283283292176
+  name: config-038617275137
 data:
   AWS_REGION: "us-east-1"
-  AWS_BUCKET: "arn:aws:s3:::mybucket-283283292176"
-  AWS_PROFILE: "user-283283292176"
-  POSTGRES_HOST: "mydb-283283292176.cv0rzuwlz7bp.us-east-1.rds.amazonaws.com"
+  AWS_BUCKET: "arn:aws:s3:::project4-038617275137"
+  AWS_PROFILE: "user-admin-038617275137"
+  POSTGRES_HOST: "mydatabase.cvnconvvv5xs.us-east-1.rds.amazonaws.com"
   POSTGRES_DB: "postgres"
   URL: "http://localhost:8100"
   JWT_SECRET: testing
