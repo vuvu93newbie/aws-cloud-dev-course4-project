@@ -68,3 +68,13 @@ kubectl set image deployment/udagram-frontend udagram-frontend=vuvunewbie/udagra
 
 kubectl rollout restart deployment udagram-api-feed
 
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+
+kubectl autoscale deployment udagram-api-feed --cpu-percent=60 --min=1 --max=4
+
+kubectl run -i --tty load-generator --image=busybox --restart=Never -- /bin/sh -c "while true; do wget -q -O- http://udagram-api-feed:8080; done"
+
+kubectl get hpa udagram-api-feed --watch
+
+kubectl delete pod load-generator
+
