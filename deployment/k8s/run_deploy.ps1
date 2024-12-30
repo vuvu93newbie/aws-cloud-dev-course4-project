@@ -66,3 +66,5 @@ kubectl set image deployment frontend frontend=[Dockerhub-username]/udagram-fron
 # force update image
 kubectl set image deployment/udagram-frontend udagram-frontend=vuvunewbie/udagram-frontend:latest --record
 
+kubectl rollout restart deployment udagram-api-feed
+

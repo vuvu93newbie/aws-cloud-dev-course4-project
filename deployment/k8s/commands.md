@@ -3,3 +3,5 @@ eksctl create cluster --name my-cluster --region us-east-1 --nodegroup-name my-n
 
 # delete EKS Cluster
 eksctl delete cluster --name my-cluster --region us-east-1
+
+# TODO review selector app vs service

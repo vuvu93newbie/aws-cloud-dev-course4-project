@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: udagram-reverseproxy
   labels:
-    app: udagram-reverseproxy
+    service: udagram-reverseproxy
 spec:
   ports:
   - name: "8080"
     port: 8080
     targetPort: 8080
   selector:
-    app: udagram-reverseproxy
+    service: udagram-reverseproxy

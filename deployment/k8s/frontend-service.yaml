@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: udagram-frontend
   labels:
-    app: udagram-frontend
+    service: udagram-frontend
 spec:
   ports:
   - name: "8100"
